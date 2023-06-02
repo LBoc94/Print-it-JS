@@ -39,16 +39,13 @@ function slideInfo () {
 }
 
 
-function newDot () {
+for (let i = 0; i < slideCount; i++) {
 	const dotsContainer = document.querySelector(".dots");
 	const dot = document.createElement("span");
 	dot.classList.add("dot");
 	dotsContainer.appendChild(dot);
 }
 
-for (let i = 0; i < slideCount; i++) {
-	newDot ()
-}
 let activeDot = 0
 let dotArray = document.querySelectorAll(".dots .dot");
 dotArray[activeDot].classList.add("dot_selected");
