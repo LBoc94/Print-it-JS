@@ -20,7 +20,6 @@ const slides = [
 
 const leftArrow = document.querySelector(".arrow_left")
 const rightArrow = document.querySelector(".arrow_right")
-const dotsContainer = document.querySelector(".dots")
 
 
 let slideIndex = 0;
@@ -34,17 +33,28 @@ function slideInfo () {
 	slideImg.src = slides[slideIndex].image
  	slideTxt.innerHTML = slides[slideIndex].tagLine
 
-	 for (let i = 0; i < slideCount; i++) {
-		 const dot = document.createElement("span");
-		 dot.classList.add("dot");
-		 dotsContainer.appendChild(dot);	
-	 
-			 
-		 if (i == slideIndex) {
-			 dot.classList.add("dot_selected");
-		 }
-	 }
+	dotArray[activeDot].classList.remove("dot_selected")
+	activeDot = slideIndex
+	dotArray[activeDot].classList.add("dot_selected");
 }
+
+
+function newDot () {
+	const dotsContainer = document.querySelector(".dots");
+	const dot = document.createElement("span");
+	dot.classList.add("dot");
+	dotsContainer.appendChild(dot);
+}
+
+for (let i = 0; i < slideCount; i++) {
+	newDot ()
+}
+let activeDot = 0
+let dotArray = document.querySelectorAll(".dots .dot");
+dotArray[activeDot].classList.add("dot_selected");
+
+
+
 
 
 leftArrow.addEventListener("click", (event) => {
@@ -75,34 +85,3 @@ rightArrow.addEventListener("click", (event) => {
 	console.log("slideIndex " + slideIndex)
 	console.log("slideCount " + slideCount)
 })
-
-
-
-// AJOUT DES DOTS
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//////////
-// // const tableau = ["A", "B", "C", "D", "E"];
-// const index = 2; // Numéro d'index de la cellule que vous souhaitez afficher
-
-// // Vérifier si l'index est valide
-// if (index >= 0 && index < slides.length) {
-//   const valeur = slides[index];
-//   console.log(valeur); // Affiche la valeur de la cellule correspondant à l'index donné
-// } else {
-//   console.log("Index invalide");
-// }
