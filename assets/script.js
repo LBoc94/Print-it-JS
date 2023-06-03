@@ -20,12 +20,13 @@ const slides = [
 
 const leftArrow = document.querySelector(".arrow_left")
 const rightArrow = document.querySelector(".arrow_right")
-const dotsContainer = document.querySelector(".dots");
 let slideIndex = 0;
 let slideCount = slides.length;
 
 
 // CRÉATION DES DOTS EN FONCTION DU NOMBRE DE SLIDES
+const dotsContainer = document.querySelector(".dots");
+
 for (let i = 0; i < slideCount; i++) {
 	const dot = document.createElement("span");
 	dot.classList.add("dot");
@@ -56,6 +57,7 @@ function slideInfo () {
 // SLIDE CLIC GAUCHE
 leftArrow.addEventListener("click", (event) => {
 	--slideIndex;
+
 	if (slideIndex < 0) {
 		slideIndex = slideCount -1;
 	}
@@ -68,6 +70,7 @@ leftArrow.addEventListener("click", (event) => {
 // SLIDE CLIC DROIT
 rightArrow.addEventListener("click", (event) => {
 	++slideIndex;
+
 	if (slideIndex > slideCount -1) {
 		slideIndex = 0;
 	}
